@@ -226,6 +226,23 @@ function App() {
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
+  // Handle direct navigation to pretty paths like /services by mapping
+  // pathname -> hash and triggering smooth scroll on initial load.
+  useEffect(() => {
+    try {
+      const p = window.location.pathname || '/'
+      if (p && p !== '/' && !p.includes('.') ) {
+        const id = p.replace(/^\/+|\/+$/g, '')
+        if (id) {
+          // allow the page to render first
+          setTimeout(() => smoothScrollToHash(`#${id}`), 60)
+        }
+      }
+    } catch (e) {
+      // ignore in non-browser env
+    }
+  }, [])
+
   useEffect(() => {
     if (!heroRef.current || reduced) return
     const el = heroRef.current
@@ -260,7 +277,7 @@ function App() {
       <header className="sticky top-0 z-50 border-b border-brandS/10 bg-white/80 backdrop-blur">
   <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6" style={{ minHeight: '80px' }}>
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="TECH S-CUBE — Salem IT company | TechSCube | Karthi Nexgen" className="h-10 w-10 rounded-md" loading="eager" />
+            <img src="/logo.png" alt="TECH S-CUBE — Salem IT company | TechSCube" className="h-10 w-10 rounded-md" loading="eager" />
             <div className="leading-tight">
               <p className="font-display text-sm font-semibold tracking-tight text-brandS">{BRAND.name}</p>
               <p className="text-[11px] text-brandS/65">{BRAND.tagline}</p>

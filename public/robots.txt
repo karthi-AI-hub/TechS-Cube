@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+
+# Sitemap location (update if your production domain differs)
+Sitemap: https://techscube.in/sitemap.xml
