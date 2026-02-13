@@ -260,7 +260,7 @@ function App() {
       <header className="sticky top-0 z-50 border-b border-brandS/10 bg-white/80 backdrop-blur">
   <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6" style={{ minHeight: '80px' }}>
           <div className="flex items-center gap-3">
-            <img src="/techscube-seo-logo.svg" alt="TECH S-CUBE — Salem IT company | TechSCube | Karthi Nexgen" className="h-10 w-10 rounded-md" loading="eager" />
+            <img src="/logo.png" alt="TECH S-CUBE — Salem IT company | TechSCube | Karthi Nexgen" className="h-10 w-10 rounded-md" loading="eager" />
             <div className="leading-tight">
               <p className="font-display text-sm font-semibold tracking-tight text-brandS">{BRAND.name}</p>
               <p className="text-[11px] text-brandS/65">{BRAND.tagline}</p>
